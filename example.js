@@ -2,7 +2,9 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	token: "",
-	autorun: true
+	autorun: true,
+	intents: Discord.Intents.NonPrivileged, // use all the intents that don't require special permissions/validating your both
+	// intents can also be passed as an array like [Discord.Intents.Flags.GUILDS, Discord.Intents.Flags.DIRECT_MESSAGES]
 });
 
 /*Event area*/
