@@ -27,6 +27,6 @@
   "dependencies": {
     "cjopus": "^0.0.4",
     "tweetnacl": "^0.14.0",
-    "ws": "^1.1.0"
+    "ws": "^1.1.5"
   }
 }
