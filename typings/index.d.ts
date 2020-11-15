@@ -456,7 +456,8 @@ declare namespace Discord {
       token: string,
       autorun?: boolean,
       messageCacheLimit?: number,
-      shard?: number[]
+      shard?: number[],
+      intents: Array<number> | number,
     })
 
     // EVENTS
@@ -650,7 +651,7 @@ declare namespace Discord {
 		GENERAL_MANAGE_ROLES: number;
 		GENERAL_MANAGE_NICKNAMES: number;
 		GENERAL_CHANGE_NICKNAME: number;
-        GENERAL_MANAGE_EMOJIS: number;
+    GENERAL_MANAGE_EMOJIS: number;
 
 		TEXT_READ_MESSAGES: number;
 		TEXT_SEND_MESSAGES: number;
@@ -669,8 +670,34 @@ declare namespace Discord {
 		VOICE_MOVE_MEMBERS: number;
 		VOICE_USE_VAD: number;
 
-        UNKNOWN_29: number;
-	}
+    UNKNOWN_29: number;
+  }
+
+  // or maybe it should be an enum?
+  interface IntentFlags {
+    GUILDS: number;
+    GUILD_MEMBERS: number;
+    GUILD_BANS: number;
+    GUILD_EMOJIS: number;
+    GUILD_INTEGRATIONS: number;
+    GUILD_WEBHOOKS: number;
+    GUILD_INVITES: number;
+    GUILD_VOICE_STATES: number;
+    GUILD_PRESENCES: number;
+    GUILD_MESSAGES: number;
+    GUILD_MESSAGE_REACTIONS: number;
+    GUILD_MESSAGE_TYPING: number;
+    DIRECT_MESSAGES: number;
+    DIRECT_MESSAGE_REACTIONS: number;
+    DIRECT_MESSAGE_TYPING: number;
+  }
+
+  export interface Intents {
+    Flags: IntentFlags;
+    Privileged: number;
+    All: number;
+    NonPrivileged: number;
+  }
 }
 
 export = Discord;
